@@ -93,24 +93,30 @@ const PostalCodeInput = () => {
     dispatch(clearData());
     setIsLoading(true); // Set loading state
 
-    const options = {
-  method: 'GET',
-  url: `https://india-pincode-with-latitude-and-longitude.p.rapidapi.com/api/v1/pincode/${postalCode}`,
-  headers: {
-    'X-RapidAPI-Key': 'a21e3241bfmsh0e4280df0a76fbfp105466jsn520ab027509b',
-    'X-RapidAPI-Host': 'india-pincode-with-latitude-and-longitude.p.rapidapi.com'
-  }
-};
+//     const options = {
+//   method: 'GET',
+//   url: `https://india-pincode-with-latitude-and-longitude.p.rapidapi.com/api/v1/pincode/${postalCode}`,
+//   headers: {
+//     'X-RapidAPI-Key': 'a21e3241bfmsh0e4280df0a76fbfp105466jsn520ab027509b',
+//     'X-RapidAPI-Host': 'india-pincode-with-latitude-and-longitude.p.rapidapi.com'
+//   }
+// };
+
+// const options = {
+//   method: 'GET',
+//   url: `https://api.zippopotam.us/country/${postalCode}`,
+  
+// };
 
 
 
     try {
-      const response = await axios.request(options);
+      const response = await axios.request(`https://api.zippopotam.us/IN/${postalCode}`);
 
-      const array = response.data[0];
+      const array = response.data;
       dispatch(setCode(postalCode));
       dispatch(setLocationData(array));
-      console.log(response.data[0]);
+      console.log(response.data);
     } catch (error) {
       console.error(error);
     } finally {

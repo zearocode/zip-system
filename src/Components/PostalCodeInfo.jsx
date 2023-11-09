@@ -14,12 +14,17 @@ function LocationInfo() {
           <h2 className="text-blue-500 ">Location Information</h2>
           <div className="mt-3 text-green-500 ">
           <div>
-              <p>Area: {locationData.area}</p>
-              <p>District: {locationData.district}</p>
-              <p>State: {locationData.state}</p>
-              <p>Pincode: {locationData.pincode}</p>
+              <p>Area: {locationData.country}</p>
+              <p>State: {locationData.places[0].state}</p>
+              <p>Latitude: {locationData.places[1].latitude}</p>
+              <p>Longitude: {locationData.places[1].longitude}</p>
+              
+             
+              <p>Place Name: {locationData.places[2]["place name"]}</p>
+
+              {/* <p>Pincode: {locationData.pincode}</p>
               <p>Latitude: {locationData.lat}</p>
-              <p>Longitude: {locationData.lng}</p>
+              <p>Longitude: {locationData.lng}</p> */}
             </div>
           </div>
         </div>
